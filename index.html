@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Funny Dancing Cartoon</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      overflow: hidden;
+    }
+
+    /* Dancing Cartoon */
+    .cartoon {
+      width: 150px;
+      height: 150px;
+      background: #ff6f61;
+      border-radius: 50%;
+      position: relative;
+      animation: dance 2s infinite ease-in-out;
+    }
+
+    .cartoon::before,
+    .cartoon::after {
+      content: '';
+      position: absolute;
+      background: #ff6f61;
+    }
+
+    .cartoon::before {
+      width: 40px;
+      height: 80px;
+      border-radius: 20px;
+      top: 120px;
+      left: 30px;
+      transform: rotate(-30deg);
+      animation: left-arm 2s infinite ease-in-out;
+    }
+
+    .cartoon::after {
+      width: 40px;
+      height: 80px;
+      border-radius: 20px;
+      top: 120px;
+      right: 30px;
+      transform: rotate(30deg);
+      animation: right-arm 2s infinite ease-in-out;
+    }
+
+    /* Eyes */
+    .eyes {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 20px;
+    }
+
+    .eye {
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      animation: blink 3s infinite ease-in-out;
+    }
+
+    /* Mouth */
+    .mouth {
+      width: 40px;
+      height: 20px;
+      background: white;
+      border-radius: 50% 50% 0 0;
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: smile 2s infinite ease-in-out;
+    }
+
+    /* Bouncing Text */
+    .bouncing-text {
+      margin-top: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+      animation: bounce 1.5s infinite ease-in-out;
+    }
+
+    /* Keyframes */
+    @keyframes dance {
+      0%, 100% {
+        transform: translateY(0) rotate(0);
+      }
+      25% {
+        transform: translateY(-20px) rotate(-10deg);
+      }
+      50% {
+        transform: translateY(0) rotate(10deg);
+      }
+      75% {
+        transform: translateY(-20px) rotate(-10deg);
+      }
+    }
+
+    @keyframes left-arm {
+      0%, 100% {
+        transform: rotate(-30deg);
+      }
+      50% {
+        transform: rotate(-60deg);
+      }
+    }
+
+    @keyframes right-arm {
+      0%, 100% {
+        transform: rotate(30deg);
+      }
+      50% {
+        transform: rotate(60deg);
+      }
+    }
+
+    @keyframes blink {
+      0%, 90%, 100% {
+        height: 20px;
+      }
+      95% {
+        height: 5px;
+      }
+    }
+
+    @keyframes smile {
+      0%, 100% {
+        height: 20px;
+      }
+      50% {
+        height: 10px;
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Dancing Cartoon -->
+  <div class="cartoon">
+    <div class="eyes">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+    <div class="mouth"></div>
+  </div>
+
+  <!-- Bouncing Text -->
+  <div class="bouncing-text">I AM STILL WORKING ON IT</div>
+
+  <script>
+    // Optional: Add some fun JavaScript to interact with the cartoon
+    const cartoon = document.querySelector('.cartoon');
+
+    cartoon.addEventListener('click', () => {
+      cartoon.style.animationPlayState = 'paused';
+      setTimeout(() => {
+        cartoon.style.animationPlayState = 'running';
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
